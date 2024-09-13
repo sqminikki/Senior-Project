@@ -1,0 +1,26 @@
+import requests
+
+def translate_text(api_key, text, target_language='en'):
+    url = f"https://translation.googleapis.com/language/translate/v2"
+    params = {
+        'q': text,
+        'target': target_language,
+        'key': api_key
+    }
+    response = requests.post(url, params=params)
+
+
+    print("Response status code:", response.status_code)
+    response_json = response.json()
+    print("Response content:", response_json)
+
+    result = response.json()
+    return result['data']['translations'][0]['translatedText']
+
+if __name__ == "__main__":
+    api_key = "AIzaSyA3Mv7ml7ht9JpFkA1kHD_PPNXquDMjblI"
+    text_to_translate = "hola coma estas"
+    translated_text = translate_text(api_key, text_to_translate, target_language='en')
+    
+    print("Original text:", text_to_translate)
+    print("Translated text:", translated_text)
