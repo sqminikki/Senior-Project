@@ -18,7 +18,7 @@ def translate_text(api_key, text, target_language='en'):
     return result['data']['translations'][0]['translatedText']
 
 if __name__ == "__main__":
-    api_key = "AIzaSyA3Mv7ml7ht9JpFkA1kHD_PPNXquDMjblI"
+    api_key = "YOUR_api_key_here"
     text_to_translate = "hola coma estas"
     translated_text = translate_text(api_key, text_to_translate, target_language='en')
     
